@@ -1,5 +1,5 @@
 
-# Cost of antiseizure medications 2006-2021
+# Evolution in the prescription and cost of non-intravenous rescue benzodiazepines for the treatment of seizure emergencies
 
 
 
@@ -12004,12 +12004,13 @@ rescue_post_epilepsy_encounter <- rescue_prescriptions_after_epilepsy_IP_ED_enco
 
 
 
-Time from diagnosis to rescue medication and time from ED or IP epilepsy visit to rescue medication
+Logistic regression
 ```{r}
 # Prepare data for regression
 logistic_regression_database <- demographics %>% 
   arrange(ENROLID, SVCDATE) %>% 
   distinct(ENROLID, .keep_all=TRUE) %>% 
+  mutate(age_groups = as.factor(age_groups)) %>% 
   mutate(
     age_0_5_y = case_when(
       age_groups=="0-5 years" ~ 1,
@@ -12054,19 +12055,19 @@ logistic_regression_database <- demographics %>%
       EESTATU==1 ~ 1,
       TRUE ~ 0)
   ) %>% 
-  select(ENROLID, age_0_5_y, age_6_12_y, age_13_21_y, age_22_35_y, age_36_50_y, male, refractory, ED_IP_1_3, ED_IP_more_than_3, north_east, north_central, south, other_region, full_time) %>% 
+  select(ENROLID, age_groups, age_0_5_y, age_6_12_y, age_13_21_y, age_22_35_y, age_36_50_y, male, refractory, ED_IP_1_3, ED_IP_more_than_3, north_east, north_central, south, other_region, full_time) %>% 
   mutate(rescue = case_when(
     ENROLID %in% !!inflation_adjusted_rescue_medication_epilepsy$ENROLID ~ 1,
     TRUE ~ 0)
     ) %>% 
-  select(ENROLID, rescue, age_0_5_y, age_6_12_y, age_13_21_y, age_22_35_y, age_36_50_y, male, refractory, ED_IP_1_3, ED_IP_more_than_3, north_east, north_central, south, other_region, full_time) %>% 
+  select(ENROLID, rescue, age_groups, age_0_5_y, age_6_12_y, age_13_21_y, age_22_35_y, age_36_50_y, male, refractory, ED_IP_1_3, ED_IP_more_than_3, north_east, north_central, south, other_region, full_time) %>% 
   collect()
 
 
 
 
 # Logistic regression
-rescue_medication_logistic_regression <- glm(rescue ~ age_0_5_y + age_6_12_y + age_13_21_y + age_22_35_y + age_36_50_y + male + refractory + ED_IP_1_3 + ED_IP_more_than_3 + north_east + north_central + south + other_region + full_time, data=logistic_regression_database, family="binomial")
+rescue_medication_logistic_regression <- glm(rescue ~ relevel(age_groups, ref="13-21 years") + male + refractory + ED_IP_1_3 + ED_IP_more_than_3 + north_east + north_central + south + other_region + full_time, data=logistic_regression_database, family="binomial")
 
 summary(rescue_medication_logistic_regression)
 
