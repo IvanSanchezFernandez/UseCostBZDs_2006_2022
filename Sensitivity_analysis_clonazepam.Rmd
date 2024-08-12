@@ -1,5 +1,5 @@
 
-# Evolution in the prescription and cost of non-intravenous rescue benzodiazepines for the treatment of seizure emergencies
+# Sensitivity analysis clonazepam as rescue medication in: Evolution in the prescription and cost of non-intravenous rescue benzodiazepines for the treatment of seizure emergencies
 
 
 
@@ -8578,6 +8578,179 @@ codes_NDCNUM_intranasal_DZP_2022 <- redbook_2022_data %>%
     ) %>% 
   pull(NDCNUM)
 codes_NDCNUM_intranasal_DZP_2022 <- as.numeric(codes_NDCNUM_intranasal_DZP_2022)
+
+
+
+
+# Clonazepam oral disintegrating tablets
+codes_NDCNUM_oral_CNZ_2006 <- redbook_2006_data %>% 
+  filter(
+      ( grepl("klonopin", PRODNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE) ) |
+      ( grepl("clonazepam", GENNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  ) |
+      ( grepl("clonazepam", THRDTDS, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  )
+    ) %>% 
+  pull(NDCNUM)
+codes_NDCNUM_oral_CNZ_2006 <- as.numeric(codes_NDCNUM_oral_CNZ_2006)
+
+
+codes_NDCNUM_oral_CNZ_2007 <- redbook_2007_data %>% 
+  filter(
+      ( grepl("klonopin", PRODNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE) ) |
+      ( grepl("clonazepam", GENNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  ) |
+      ( grepl("clonazepam", THRDTDS, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  )
+    ) %>% 
+  pull(NDCNUM)
+codes_NDCNUM_oral_CNZ_2007 <- as.numeric(codes_NDCNUM_oral_CNZ_2007)
+
+
+codes_NDCNUM_oral_CNZ_2008 <- redbook_2008_data %>% 
+  filter(
+      ( grepl("klonopin", PRODNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE) ) |
+      ( grepl("clonazepam", GENNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  ) |
+      ( grepl("clonazepam", THRDTDS, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  )
+    ) %>% 
+  pull(NDCNUM)
+codes_NDCNUM_oral_CNZ_2008 <- as.numeric(codes_NDCNUM_oral_CNZ_2008)
+
+
+codes_NDCNUM_oral_CNZ_2009 <- redbook_2009_data %>% 
+  filter(
+      ( grepl("klonopin", PRODNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE) ) |
+      ( grepl("clonazepam", GENNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  ) |
+      ( grepl("clonazepam", THRDTDS, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  )
+    ) %>% 
+  pull(NDCNUM)
+codes_NDCNUM_oral_CNZ_2009 <- as.numeric(codes_NDCNUM_oral_CNZ_2009)
+
+
+codes_NDCNUM_oral_CNZ_2010 <- redbook_2010_data %>% 
+  filter(
+      ( grepl("klonopin", PRODNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE) ) |
+      ( grepl("clonazepam", GENNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  ) |
+      ( grepl("clonazepam", THRDTDS, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  )
+    ) %>% 
+  pull(NDCNUM)
+codes_NDCNUM_oral_CNZ_2010 <- as.numeric(codes_NDCNUM_oral_CNZ_2010)
+
+
+codes_NDCNUM_oral_CNZ_2011 <- redbook_2011_data %>% 
+  filter(
+      ( grepl("klonopin", PRODNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE) ) |
+      ( grepl("clonazepam", GENNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  ) |
+      ( grepl("clonazepam", THRDTDS, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  )
+    ) %>% 
+  pull(NDCNUM)
+codes_NDCNUM_oral_CNZ_2011 <- as.numeric(codes_NDCNUM_oral_CNZ_2011)
+
+
+codes_NDCNUM_oral_CNZ_2012 <- redbook_2012_data %>% 
+  filter(
+      ( grepl("klonopin", PRODNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE) ) |
+      ( grepl("clonazepam", GENNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  ) |
+      ( grepl("clonazepam", THRDTDS, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  )
+    ) %>% 
+  pull(NDCNUM)
+codes_NDCNUM_oral_CNZ_2012 <- as.numeric(codes_NDCNUM_oral_CNZ_2012)
+
+
+codes_NDCNUM_oral_CNZ_2013 <- redbook_2013_data %>% 
+  filter(
+      ( grepl("klonopin", PRODNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE) ) |
+      ( grepl("clonazepam", GENNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  ) |
+      ( grepl("clonazepam", THRDTDS, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  )
+    ) %>% 
+  pull(NDCNUM)
+codes_NDCNUM_oral_CNZ_2013 <- as.numeric(codes_NDCNUM_oral_CNZ_2013)
+
+
+codes_NDCNUM_oral_CNZ_2014 <- redbook_2014_data %>% 
+  filter(
+      ( grepl("klonopin", PRODNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE) ) |
+      ( grepl("clonazepam", GENNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  ) |
+      ( grepl("clonazepam", THRDTDS, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  )
+    ) %>% 
+  pull(NDCNUM)
+codes_NDCNUM_oral_CNZ_2014 <- as.numeric(codes_NDCNUM_oral_CNZ_2014)
+
+
+codes_NDCNUM_oral_CNZ_2015 <- redbook_2015_data %>% 
+  filter(
+      ( grepl("klonopin", PRODNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE) ) |
+      ( grepl("clonazepam", GENNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  ) |
+      ( grepl("clonazepam", THRDTDS, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  )    
+    ) %>% 
+  pull(NDCNUM)
+codes_NDCNUM_oral_CNZ_2015 <- as.numeric(codes_NDCNUM_oral_CNZ_2015)
+
+
+codes_NDCNUM_oral_CNZ_2016 <- redbook_2016_data %>% 
+  filter(
+      ( grepl("klonopin", PRODNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE) ) |
+      ( grepl("clonazepam", GENNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  ) |
+      ( grepl("clonazepam", THRDTDS, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  )    
+    ) %>% 
+  pull(NDCNUM)
+codes_NDCNUM_oral_CNZ_2016 <- as.numeric(codes_NDCNUM_oral_CNZ_2016)
+
+
+codes_NDCNUM_oral_CNZ_2017 <- redbook_2017_data %>% 
+  filter(
+      ( grepl("klonopin", PRODNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE) ) |
+      ( grepl("clonazepam", GENNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  ) |
+      ( grepl("clonazepam", THRDTDS, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  )    
+    ) %>% 
+  pull(NDCNUM)
+codes_NDCNUM_oral_CNZ_2017 <- as.numeric(codes_NDCNUM_oral_CNZ_2017)
+
+
+codes_NDCNUM_oral_CNZ_2018 <- redbook_2018_data %>% 
+  filter(
+      ( grepl("klonopin", PRODNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE) ) |
+      ( grepl("clonazepam", GENNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  ) |
+      ( grepl("clonazepam", THRDTDS, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  )    
+    ) %>% 
+  pull(NDCNUM)
+codes_NDCNUM_oral_CNZ_2018 <- as.numeric(codes_NDCNUM_oral_CNZ_2018)
+
+
+codes_NDCNUM_oral_CNZ_2019 <- redbook_2019_data %>% 
+  filter(
+      ( grepl("klonopin", PRODNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE) ) |
+      ( grepl("clonazepam", GENNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  ) |
+      ( grepl("clonazepam", THRDTDS, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  )    
+    ) %>% 
+  pull(NDCNUM)
+codes_NDCNUM_oral_CNZ_2019 <- as.numeric(codes_NDCNUM_oral_CNZ_2019)
+
+
+codes_NDCNUM_oral_CNZ_2020 <- redbook_2020_data %>% 
+  filter(
+      ( grepl("klonopin", PRODNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE) ) |
+      ( grepl("clonazepam", GENNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  ) |
+      ( grepl("clonazepam", THRDTDS, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  )    
+    ) %>% 
+  pull(NDCNUM)
+codes_NDCNUM_oral_CNZ_2020 <- as.numeric(codes_NDCNUM_oral_CNZ_2020)
+
+
+codes_NDCNUM_oral_CNZ_2021 <- redbook_2021_data %>% 
+  filter(
+      ( grepl("klonopin", PRODNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE) ) |
+      ( grepl("clonazepam", GENNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  ) |
+      ( grepl("clonazepam", THRDTDS, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  )    
+    ) %>% 
+  pull(NDCNUM)
+codes_NDCNUM_oral_CNZ_2021 <- as.numeric(codes_NDCNUM_oral_CNZ_2021)
+
+
+codes_NDCNUM_oral_CNZ_2022 <- redbook_2022_data %>% 
+  filter(
+      ( grepl("klonopin", PRODNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE) ) |
+      ( grepl("clonazepam", GENNME, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  ) |
+      ( grepl("clonazepam", THRDTDS, ignore.case=TRUE) & grepl("ODT", MASTFRM, ignore.case=TRUE)  )    
+    ) %>% 
+  pull(NDCNUM)
+codes_NDCNUM_oral_CNZ_2022 <- as.numeric(codes_NDCNUM_oral_CNZ_2022)
 ```
 
 
@@ -11227,7 +11400,7 @@ Patients with epilepsy with at least 6 months between first and last chronic ant
 ####################################2006####################################
 rescue_medication_epilepsy_2006 <- ms_d_2006 %>% 
   filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
-  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2006) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2006) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2006) )  %>%
+  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2006) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2006) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2006) | (NDCNUM %in% codes_NDCNUM_oral_CNZ_2006))  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
   collect() %>% 
@@ -11235,14 +11408,15 @@ rescue_medication_epilepsy_2006 <- ms_d_2006 %>%
   mutate(rescue_medication = case_when(
     NDCNUM %in% codes_NDCNUM_rectal_DZP_2006 ~ "rectal diazepam",
     NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2006 ~ "intranasal midazolam",
-    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2006 ~ "intranasal diazepam"
+    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2006 ~ "intranasal diazepam",
+    NDCNUM %in% codes_NDCNUM_oral_CNZ_2006 ~ "oral clonazepam"
   ))
 
 
 ####################################2007####################################
 rescue_medication_epilepsy_2007 <- ms_d_2007 %>% 
   filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
-  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2007) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2007) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2007) )  %>%
+  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2007) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2007) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2007) | (NDCNUM %in% codes_NDCNUM_oral_CNZ_2007))  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
   collect() %>% 
@@ -11250,14 +11424,15 @@ rescue_medication_epilepsy_2007 <- ms_d_2007 %>%
   mutate(rescue_medication = case_when(
     NDCNUM %in% codes_NDCNUM_rectal_DZP_2007 ~ "rectal diazepam",
     NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2007 ~ "intranasal midazolam",
-    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2007 ~ "intranasal diazepam"
+    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2007 ~ "intranasal diazepam",
+    NDCNUM %in% codes_NDCNUM_oral_CNZ_2007 ~ "oral clonazepam"
   ))
 
 
 ####################################2008####################################
 rescue_medication_epilepsy_2008 <- ms_d_2008 %>% 
   filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
-  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2008) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2008) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2008) )  %>%
+  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2008) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2008) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2008) | (NDCNUM %in% codes_NDCNUM_oral_CNZ_2008))  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
   collect() %>% 
@@ -11265,14 +11440,15 @@ rescue_medication_epilepsy_2008 <- ms_d_2008 %>%
   mutate(rescue_medication = case_when(
     NDCNUM %in% codes_NDCNUM_rectal_DZP_2008 ~ "rectal diazepam",
     NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2008 ~ "intranasal midazolam",
-    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2008 ~ "intranasal diazepam"
+    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2008 ~ "intranasal diazepam",
+    NDCNUM %in% codes_NDCNUM_oral_CNZ_2008 ~ "oral clonazepam"
   ))
 
 
 ####################################2009####################################
 rescue_medication_epilepsy_2009 <- ms_d_2009 %>% 
   filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
-  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2009) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2009) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2009) )  %>%
+  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2009) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2009) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2009) | (NDCNUM %in% codes_NDCNUM_oral_CNZ_2009))  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
   collect() %>% 
@@ -11280,14 +11456,15 @@ rescue_medication_epilepsy_2009 <- ms_d_2009 %>%
   mutate(rescue_medication = case_when(
     NDCNUM %in% codes_NDCNUM_rectal_DZP_2009 ~ "rectal diazepam",
     NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2009 ~ "intranasal midazolam",
-    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2009 ~ "intranasal diazepam"
+    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2009 ~ "intranasal diazepam",
+    NDCNUM %in% codes_NDCNUM_oral_CNZ_2009 ~ "oral clonazepam"
   ))
 
 
 ####################################2010####################################
 rescue_medication_epilepsy_2010 <- ms_d_2010 %>% 
   filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
-  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2010) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2010) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2010) )  %>%
+  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2010) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2010) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2010) | (NDCNUM %in% codes_NDCNUM_oral_CNZ_2010))  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
   collect() %>% 
@@ -11295,14 +11472,15 @@ rescue_medication_epilepsy_2010 <- ms_d_2010 %>%
   mutate(rescue_medication = case_when(
     NDCNUM %in% codes_NDCNUM_rectal_DZP_2010 ~ "rectal diazepam",
     NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2010 ~ "intranasal midazolam",
-    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2010 ~ "intranasal diazepam"
+    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2010 ~ "intranasal diazepam",
+    NDCNUM %in% codes_NDCNUM_oral_CNZ_2010 ~ "oral clonazepam"
   ))
 
 
 ####################################2011####################################
 rescue_medication_epilepsy_2011 <- ms_d_2011 %>% 
   filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
-  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2011) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2011) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2011) )  %>%
+  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2011) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2011) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2011) | (NDCNUM %in% codes_NDCNUM_oral_CNZ_2011))  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
   collect() %>% 
@@ -11310,14 +11488,15 @@ rescue_medication_epilepsy_2011 <- ms_d_2011 %>%
   mutate(rescue_medication = case_when(
     NDCNUM %in% codes_NDCNUM_rectal_DZP_2011 ~ "rectal diazepam",
     NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2011 ~ "intranasal midazolam",
-    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2011 ~ "intranasal diazepam"
+    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2011 ~ "intranasal diazepam",
+    NDCNUM %in% codes_NDCNUM_oral_CNZ_2011 ~ "oral clonazepam"
   ))
 
 
 ####################################2012####################################
 rescue_medication_epilepsy_2012 <- ms_d_2012 %>% 
   filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
-  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2012) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2012) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2012) )  %>%
+  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2012) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2012) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2012) | (NDCNUM %in% codes_NDCNUM_oral_CNZ_2012))  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
   collect() %>% 
@@ -11325,14 +11504,15 @@ rescue_medication_epilepsy_2012 <- ms_d_2012 %>%
   mutate(rescue_medication = case_when(
     NDCNUM %in% codes_NDCNUM_rectal_DZP_2012 ~ "rectal diazepam",
     NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2012 ~ "intranasal midazolam",
-    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2012 ~ "intranasal diazepam"
+    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2012 ~ "intranasal diazepam",
+    NDCNUM %in% codes_NDCNUM_oral_CNZ_2012 ~ "oral clonazepam"
   ))
 
 
 ####################################2013####################################
 rescue_medication_epilepsy_2013 <- ms_d_2013 %>% 
   filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
-  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2013) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2013) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2013) )  %>%
+  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2013) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2013) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2013) | (NDCNUM %in% codes_NDCNUM_oral_CNZ_2013))  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
   collect() %>% 
@@ -11340,14 +11520,15 @@ rescue_medication_epilepsy_2013 <- ms_d_2013 %>%
   mutate(rescue_medication = case_when(
     NDCNUM %in% codes_NDCNUM_rectal_DZP_2013 ~ "rectal diazepam",
     NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2013 ~ "intranasal midazolam",
-    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2013 ~ "intranasal diazepam"
+    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2013 ~ "intranasal diazepam",
+    NDCNUM %in% codes_NDCNUM_oral_CNZ_2013 ~ "oral clonazepam"
   ))
 
 
 ####################################2014####################################
 rescue_medication_epilepsy_2014 <- ms_d_2014 %>% 
   filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
-  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2014) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2014) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2014) )  %>%
+  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2014) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2014) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2014) | (NDCNUM %in% codes_NDCNUM_oral_CNZ_2014))  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
   collect() %>% 
@@ -11355,14 +11536,15 @@ rescue_medication_epilepsy_2014 <- ms_d_2014 %>%
   mutate(rescue_medication = case_when(
     NDCNUM %in% codes_NDCNUM_rectal_DZP_2014 ~ "rectal diazepam",
     NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2014 ~ "intranasal midazolam",
-    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2014 ~ "intranasal diazepam"
+    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2014 ~ "intranasal diazepam",
+    NDCNUM %in% codes_NDCNUM_oral_CNZ_2014 ~ "oral clonazepam"
   ))
 
 
 ####################################2015####################################
 rescue_medication_epilepsy_2015 <- ms_d_2015 %>% 
   filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
-  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2015) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2015) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2015) )  %>%
+  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2015) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2015) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2015) | (NDCNUM %in% codes_NDCNUM_oral_CNZ_2015))  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
   collect() %>% 
@@ -11370,14 +11552,15 @@ rescue_medication_epilepsy_2015 <- ms_d_2015 %>%
   mutate(rescue_medication = case_when(
     NDCNUM %in% codes_NDCNUM_rectal_DZP_2015 ~ "rectal diazepam",
     NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2015 ~ "intranasal midazolam",
-    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2015 ~ "intranasal diazepam"
+    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2015 ~ "intranasal diazepam",
+    NDCNUM %in% codes_NDCNUM_oral_CNZ_2015 ~ "oral clonazepam"
   ))
 
 
 ####################################2016####################################
 rescue_medication_epilepsy_2016 <- ms_d_2016 %>% 
   filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
-  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2016) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2016) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2016) )  %>%
+  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2016) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2016) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2016) | (NDCNUM %in% codes_NDCNUM_oral_CNZ_2016))  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
   collect() %>% 
@@ -11385,14 +11568,15 @@ rescue_medication_epilepsy_2016 <- ms_d_2016 %>%
   mutate(rescue_medication = case_when(
     NDCNUM %in% codes_NDCNUM_rectal_DZP_2016 ~ "rectal diazepam",
     NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2016 ~ "intranasal midazolam",
-    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2016 ~ "intranasal diazepam"
+    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2016 ~ "intranasal diazepam",
+    NDCNUM %in% codes_NDCNUM_oral_CNZ_2016 ~ "oral clonazepam"
   ))
 
 
 ####################################2017####################################
 rescue_medication_epilepsy_2017 <- ms_d_2017 %>% 
   filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
-  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2017) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2017) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2017) )  %>%
+  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2017) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2017) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2017) | (NDCNUM %in% codes_NDCNUM_oral_CNZ_2017))  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
   collect() %>% 
@@ -11400,14 +11584,15 @@ rescue_medication_epilepsy_2017 <- ms_d_2017 %>%
   mutate(rescue_medication = case_when(
     NDCNUM %in% codes_NDCNUM_rectal_DZP_2017 ~ "rectal diazepam",
     NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2017 ~ "intranasal midazolam",
-    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2017 ~ "intranasal diazepam"
+    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2017 ~ "intranasal diazepam",
+    NDCNUM %in% codes_NDCNUM_oral_CNZ_2017 ~ "oral clonazepam"
   ))
 
 
 ####################################2018####################################
 rescue_medication_epilepsy_2018 <- ms_d_2018 %>% 
   filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
-  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2018) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2018) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2018) )  %>%
+  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2018) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2018) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2018) | (NDCNUM %in% codes_NDCNUM_oral_CNZ_2018))  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
   collect() %>% 
@@ -11415,14 +11600,15 @@ rescue_medication_epilepsy_2018 <- ms_d_2018 %>%
   mutate(rescue_medication = case_when(
     NDCNUM %in% codes_NDCNUM_rectal_DZP_2018 ~ "rectal diazepam",
     NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2018 ~ "intranasal midazolam",
-    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2018 ~ "intranasal diazepam"
+    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2018 ~ "intranasal diazepam",
+    NDCNUM %in% codes_NDCNUM_oral_CNZ_2018 ~ "oral clonazepam"
   ))
 
 
 ####################################2019####################################
 rescue_medication_epilepsy_2019 <- ms_d_2019 %>% 
   filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
-  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2019) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2019) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2019) )  %>%
+  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2019) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2019) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2019) | (NDCNUM %in% codes_NDCNUM_oral_CNZ_2019))  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
   collect() %>% 
@@ -11430,14 +11616,15 @@ rescue_medication_epilepsy_2019 <- ms_d_2019 %>%
   mutate(rescue_medication = case_when(
     NDCNUM %in% codes_NDCNUM_rectal_DZP_2019 ~ "rectal diazepam",
     NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2019 ~ "intranasal midazolam",
-    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2019 ~ "intranasal diazepam"
+    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2019 ~ "intranasal diazepam",
+    NDCNUM %in% codes_NDCNUM_oral_CNZ_2019 ~ "oral clonazepam"
   ))
 
 
 ####################################2020####################################
 rescue_medication_epilepsy_2020 <- ms_d_2020 %>% 
   filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
-  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2020) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2020) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2020) )  %>%
+  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2020) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2020) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2020) | (NDCNUM %in% codes_NDCNUM_oral_CNZ_2020))  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
   collect() %>% 
@@ -11445,14 +11632,15 @@ rescue_medication_epilepsy_2020 <- ms_d_2020 %>%
   mutate(rescue_medication = case_when(
     NDCNUM %in% codes_NDCNUM_rectal_DZP_2020 ~ "rectal diazepam",
     NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2020 ~ "intranasal midazolam",
-    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2020 ~ "intranasal diazepam"
+    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2020 ~ "intranasal diazepam",
+    NDCNUM %in% codes_NDCNUM_oral_CNZ_2020 ~ "oral clonazepam"
   ))
 
 
 ####################################2021####################################
 rescue_medication_epilepsy_2021 <- ms_d_2021 %>% 
   filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
-  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2021) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2021) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2021) )  %>%
+  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2021) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2021) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2021) | (NDCNUM %in% codes_NDCNUM_oral_CNZ_2021))  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
   collect() %>% 
@@ -11460,14 +11648,15 @@ rescue_medication_epilepsy_2021 <- ms_d_2021 %>%
   mutate(rescue_medication = case_when(
     NDCNUM %in% codes_NDCNUM_rectal_DZP_2021 ~ "rectal diazepam",
     NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2021 ~ "intranasal midazolam",
-    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2021 ~ "intranasal diazepam"
+    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2021 ~ "intranasal diazepam",
+    NDCNUM %in% codes_NDCNUM_oral_CNZ_2021 ~ "oral clonazepam"
   ))
 
 
 ####################################2022####################################
 rescue_medication_epilepsy_2022 <- ms_d_2022 %>% 
   filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
-  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2022) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2022) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2022) )  %>%
+  filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2022) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2022) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2022) | (NDCNUM %in% codes_NDCNUM_oral_CNZ_2022))  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
   collect() %>% 
@@ -11475,7 +11664,8 @@ rescue_medication_epilepsy_2022 <- ms_d_2022 %>%
   mutate(rescue_medication = case_when(
     NDCNUM %in% codes_NDCNUM_rectal_DZP_2022 ~ "rectal diazepam",
     NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2022 ~ "intranasal midazolam",
-    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2022 ~ "intranasal diazepam"
+    NDCNUM %in% codes_NDCNUM_intranasal_DZP_2022 ~ "intranasal diazepam",
+    NDCNUM %in% codes_NDCNUM_oral_CNZ_2022 ~ "oral clonazepam"
   ))
 
 
@@ -11483,12 +11673,14 @@ rescue_medication_epilepsy_2022 <- ms_d_2022 %>%
 
 # Rescue medication
 rescue_medication_epilepsy <- bind_rows(rescue_medication_epilepsy_2006, rescue_medication_epilepsy_2007, rescue_medication_epilepsy_2008, rescue_medication_epilepsy_2009, rescue_medication_epilepsy_2010, rescue_medication_epilepsy_2011, rescue_medication_epilepsy_2012, rescue_medication_epilepsy_2013, rescue_medication_epilepsy_2014, rescue_medication_epilepsy_2015, rescue_medication_epilepsy_2016, rescue_medication_epilepsy_2017, rescue_medication_epilepsy_2018, rescue_medication_epilepsy_2019, rescue_medication_epilepsy_2020, rescue_medication_epilepsy_2021, rescue_medication_epilepsy_2022) %>% 
+  filter(((rescue_medication=="rectal diazepam") | (rescue_medication=="intranasal midazolam") | (rescue_medication=="intranasal diazepam") | ((rescue_medication=="oral clonazepam") & (DAYSUPP<15)))) %>% 
   mutate(rescue_medication = factor(rescue_medication)) %>%    
   mutate(GENIND = factor(GENIND)) %>% 
   mutate(RXMR = factor(RXMR)) %>%           
   arrange(ENROLID, SVCDATE) %>% 
   mutate(year_rescue_medication=year(SVCDATE)) %>% 
   collect()
+
 
 
 # Patients with rescue medication
@@ -13011,51 +13203,6 @@ industry_without_rescue_medication <- demographics_without_rescue_medication %>%
   reframe(
     industry = CrossTable(INDSTRY)
   )
-
-
-
-
-# Comment on the proportion of rescue medication among the spouses
-spouses_with_rescue_medication <- demographics_with_rescue_medication %>% 
-  filter(EMPREL==2) %>% 
-  distinct(ENROLID, .keep_all=TRUE) %>% 
-    reframe(
-    sex = CrossTable(SEX)
-  )
-
-spouses_without_rescue_medication <- demographics_without_rescue_medication %>% 
-  filter(EMPREL==2) %>% 
-  distinct(ENROLID, .keep_all=TRUE) %>% 
-    reframe(
-    sex = CrossTable(SEX)
-  )
-
-
-spouses_with_rescue_medication$sex$t[1] / (spouses_with_rescue_medication$sex$t[1] + spouses_without_rescue_medication$sex$t[1])
-
-spouses_with_rescue_medication$sex$t[2] / (spouses_with_rescue_medication$sex$t[2] + spouses_without_rescue_medication$sex$t[2])
-
-
-
-
-employees_with_rescue_medication <- demographics_with_rescue_medication %>% 
-  filter(EMPREL==1) %>% 
-  distinct(ENROLID, .keep_all=TRUE) %>% 
-    reframe(
-    sex = CrossTable(SEX)
-  )
-
-employees_without_rescue_medication <- demographics_without_rescue_medication %>% 
-  filter(EMPREL==1) %>% 
-  distinct(ENROLID, .keep_all=TRUE) %>% 
-    reframe(
-    sex = CrossTable(SEX)
-  )
-
-
-employees_with_rescue_medication$sex$t[1] / (employees_with_rescue_medication$sex$t[1] + employees_without_rescue_medication$sex$t[1])
-
-employees_with_rescue_medication$sex$t[2] / (employees_with_rescue_medication$sex$t[2] + employees_without_rescue_medication$sex$t[2])
 ```
 
 
@@ -13929,7 +14076,8 @@ rescue_medication_use_per_year_plot <- ggplot(data=rescue_medication_use_per_yea
                                 aes(x=`year(SVCDATE)`, y=proportion_use_per_year, color=rescue_medication)) + 
   scale_color_manual(values = c("rectal diazepam" = "red",
                                 "intranasal midazolam"="purple4",
-                                "intranasal diazepam"="greenyellow")) +
+                                "intranasal diazepam"="greenyellow",
+                                "oral clonazepam"="orange")) +
   geom_line(lwd=1.5) + 
   theme(legend.position="none", panel.background=element_blank(), panel.grid.major=element_blank(), panel.grid.minor=element_blank(), panel.border=element_blank(), axis.ticks=element_blank(),
         axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
@@ -13972,7 +14120,8 @@ rescue_medication_use_per_year_by_age_group_0_5_years_plot <- ggplot(data=rescue
                                 aes(x=`year(SVCDATE)`, y=proportion_use_per_year, color=rescue_medication)) + 
   scale_color_manual(values = c("rectal diazepam" = "red",
                                 "intranasal midazolam"="purple4",
-                                "intranasal diazepam"="greenyellow")) +
+                                "intranasal diazepam"="greenyellow",
+                                "oral clonazepam"="orange")) +
   geom_line(lwd=1.5) + 
   theme(legend.position="none", panel.background=element_blank(), panel.grid.major=element_blank(), panel.grid.minor=element_blank(), panel.border=element_blank(), axis.ticks=element_blank(),
         axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
@@ -13988,7 +14137,8 @@ rescue_medication_use_per_year_by_age_group_6_12_years_plot <- ggplot(data=rescu
                                 aes(x=`year(SVCDATE)`, y=proportion_use_per_year, color=rescue_medication)) + 
   scale_color_manual(values = c("rectal diazepam" = "red",
                                 "intranasal midazolam"="purple4",
-                                "intranasal diazepam"="greenyellow")) +
+                                "intranasal diazepam"="greenyellow",
+                                "oral clonazepam"="orange")) +
   geom_line(lwd=1.5) + 
   theme(legend.position="none", panel.background=element_blank(), panel.grid.major=element_blank(), panel.grid.minor=element_blank(), panel.border=element_blank(), axis.ticks=element_blank(),
         axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
@@ -14004,7 +14154,8 @@ rescue_medication_use_per_year_by_age_group_13_21_years_plot <- ggplot(data=resc
                                 aes(x=`year(SVCDATE)`, y=proportion_use_per_year, color=rescue_medication)) + 
   scale_color_manual(values = c("rectal diazepam" = "red",
                                 "intranasal midazolam"="purple4",
-                                "intranasal diazepam"="greenyellow")) +
+                                "intranasal diazepam"="greenyellow",
+                                "oral clonazepam"="orange")) +
   geom_line(lwd=1.5) + 
   theme(legend.position="none", panel.background=element_blank(), panel.grid.major=element_blank(), panel.grid.minor=element_blank(), panel.border=element_blank(), axis.ticks=element_blank(),
         axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
@@ -14020,7 +14171,8 @@ rescue_medication_use_per_year_by_age_group_22_35_years_plot <- ggplot(data=resc
                                 aes(x=`year(SVCDATE)`, y=proportion_use_per_year, color=rescue_medication)) + 
   scale_color_manual(values = c("rectal diazepam" = "red",
                                 "intranasal midazolam"="purple4",
-                                "intranasal diazepam"="greenyellow")) +
+                                "intranasal diazepam"="greenyellow",
+                                "oral clonazepam"="orange")) +
   geom_line(lwd=1.5) + 
   theme(legend.position="none", panel.background=element_blank(), panel.grid.major=element_blank(), panel.grid.minor=element_blank(), panel.border=element_blank(), axis.ticks=element_blank(),
         axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
@@ -14036,7 +14188,8 @@ rescue_medication_use_per_year_by_age_group_36_50_years_plot <- ggplot(data=resc
                                 aes(x=`year(SVCDATE)`, y=proportion_use_per_year, color=rescue_medication)) + 
   scale_color_manual(values = c("rectal diazepam" = "red",
                                 "intranasal midazolam"="purple4",
-                                "intranasal diazepam"="greenyellow")) +
+                                "intranasal diazepam"="greenyellow",
+                                "oral clonazepam"="orange")) +
   geom_line(lwd=1.5) + 
   theme(legend.position="none", panel.background=element_blank(), panel.grid.major=element_blank(), panel.grid.minor=element_blank(), panel.border=element_blank(), axis.ticks=element_blank(),
         axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
@@ -14052,7 +14205,8 @@ rescue_medication_use_per_year_by_age_group_51_60_years_plot <- ggplot(data=resc
                                 aes(x=`year(SVCDATE)`, y=proportion_use_per_year, color=rescue_medication)) + 
   scale_color_manual(values = c("rectal diazepam" = "red",
                                 "intranasal midazolam"="purple4",
-                                "intranasal diazepam"="greenyellow")) +
+                                "intranasal diazepam"="greenyellow",
+                                "oral clonazepam"="orange")) +
   geom_line(lwd=1.5) + 
   theme(legend.position="none", panel.background=element_blank(), panel.grid.major=element_blank(), panel.grid.minor=element_blank(), panel.border=element_blank(), axis.ticks=element_blank(),
         axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
@@ -14068,7 +14222,8 @@ rescue_medication_use_per_year_by_age_group_above_60_years_plot <- ggplot(data=r
                                 aes(x=`year(SVCDATE)`, y=proportion_use_per_year, color=rescue_medication)) + 
   scale_color_manual(values = c("rectal diazepam" = "red",
                                 "intranasal midazolam"="purple4",
-                                "intranasal diazepam"="greenyellow")) +
+                                "intranasal diazepam"="greenyellow",
+                                "oral clonazepam"="orange")) +
   geom_line(lwd=1.5) + 
   theme(legend.position="none", panel.background=element_blank(), panel.grid.major=element_blank(), panel.grid.minor=element_blank(), panel.border=element_blank(), axis.ticks=element_blank(),
         axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
@@ -14111,7 +14266,8 @@ rescue_medication_use_per_year_by_refractory_epilepsy_refractory_plot <- ggplot(
                                 aes(x=`year(SVCDATE)`, y=proportion_use_per_year, color=rescue_medication)) + 
   scale_color_manual(values = c("rectal diazepam" = "red",
                                 "intranasal midazolam"="purple4",
-                                "intranasal diazepam"="greenyellow")) +
+                                "intranasal diazepam"="greenyellow",
+                                "oral clonazepam"="orange")) +
   geom_line(lwd=1.5) + 
   theme(legend.position="none", panel.background=element_blank(), panel.grid.major=element_blank(), panel.grid.minor=element_blank(), panel.border=element_blank(), axis.ticks=element_blank(),
         axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
@@ -14127,7 +14283,8 @@ rescue_medication_use_per_year_by_refractory_epilepsy_non_refractory_plot <- ggp
                                 aes(x=`year(SVCDATE)`, y=proportion_use_per_year, color=rescue_medication)) + 
   scale_color_manual(values = c("rectal diazepam" = "red",
                                 "intranasal midazolam"="purple4",
-                                "intranasal diazepam"="greenyellow")) +
+                                "intranasal diazepam"="greenyellow",
+                                "oral clonazepam"="orange")) +
   geom_line(lwd=1.5) + 
   theme(legend.position="none", panel.background=element_blank(), panel.grid.major=element_blank(), panel.grid.minor=element_blank(), panel.border=element_blank(), axis.ticks=element_blank(),
         axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
@@ -14169,7 +14326,8 @@ rescue_medication_use_per_year_by_IP_ED_epilepsy_visits_0_plot <- ggplot(data=re
                                 aes(x=`year(SVCDATE)`, y=proportion_use_per_year, color=rescue_medication)) + 
   scale_color_manual(values = c("rectal diazepam" = "red",
                                 "intranasal midazolam"="purple4",
-                                "intranasal diazepam"="greenyellow")) +
+                                "intranasal diazepam"="greenyellow",
+                                "oral clonazepam"="orange")) +
   geom_line(lwd=1.5) + 
   theme(legend.position="none", panel.background=element_blank(), panel.grid.major=element_blank(), panel.grid.minor=element_blank(), panel.border=element_blank(), axis.ticks=element_blank(),
         axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
@@ -14185,7 +14343,8 @@ rescue_medication_use_per_year_by_IP_ED_epilepsy_visits_1_3_plot <- ggplot(data=
                                 aes(x=`year(SVCDATE)`, y=proportion_use_per_year, color=rescue_medication)) + 
   scale_color_manual(values = c("rectal diazepam" = "red",
                                 "intranasal midazolam"="purple4",
-                                "intranasal diazepam"="greenyellow")) +
+                                "intranasal diazepam"="greenyellow",
+                                "oral clonazepam"="orange")) +
   geom_line(lwd=1.5) + 
   theme(legend.position="none", panel.background=element_blank(), panel.grid.major=element_blank(), panel.grid.minor=element_blank(), panel.border=element_blank(), axis.ticks=element_blank(),
         axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
@@ -14201,7 +14360,8 @@ rescue_medication_use_per_year_by_IP_ED_epilepsy_visits_more_than_3_plot <- ggpl
                                 aes(x=`year(SVCDATE)`, y=proportion_use_per_year, color=rescue_medication)) + 
   scale_color_manual(values = c("rectal diazepam" = "red",
                                 "intranasal midazolam"="purple4",
-                                "intranasal diazepam"="greenyellow")) +
+                                "intranasal diazepam"="greenyellow",
+                                "oral clonazepam"="orange")) +
   geom_line(lwd=1.5) + 
   theme(legend.position="none", panel.background=element_blank(), panel.grid.major=element_blank(), panel.grid.minor=element_blank(), panel.border=element_blank(), axis.ticks=element_blank(),
         axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
@@ -14244,7 +14404,8 @@ rescue_medication_use_per_year_by_dementia_dementia_plot <- ggplot(data=rescue_m
                                 aes(x=`year(SVCDATE)`, y=proportion_use_per_year, color=rescue_medication)) + 
   scale_color_manual(values = c("rectal diazepam" = "red",
                                 "intranasal midazolam"="purple4",
-                                "intranasal diazepam"="greenyellow")) +
+                                "intranasal diazepam"="greenyellow",
+                                "oral clonazepam"="orange")) +
   geom_line(lwd=1.5) + 
   theme(legend.position="none", panel.background=element_blank(), panel.grid.major=element_blank(), panel.grid.minor=element_blank(), panel.border=element_blank(), axis.ticks=element_blank(),
         axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
@@ -14260,7 +14421,8 @@ rescue_medication_use_per_year_by_dementia_no_dementia_plot <- ggplot(data=rescu
                                 aes(x=`year(SVCDATE)`, y=proportion_use_per_year, color=rescue_medication)) + 
   scale_color_manual(values = c("rectal diazepam" = "red",
                                 "intranasal midazolam"="purple4",
-                                "intranasal diazepam"="greenyellow")) +
+                                "intranasal diazepam"="greenyellow",
+                                "oral clonazepam"="orange")) +
   geom_line(lwd=1.5) + 
   theme(legend.position="none", panel.background=element_blank(), panel.grid.major=element_blank(), panel.grid.minor=element_blank(), panel.border=element_blank(), axis.ticks=element_blank(),
         axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
@@ -14303,7 +14465,8 @@ rescue_medication_use_per_year_by_chronic_respiratory_failure_chronic_respirator
                                 aes(x=`year(SVCDATE)`, y=proportion_use_per_year, color=rescue_medication)) + 
   scale_color_manual(values = c("rectal diazepam" = "red",
                                 "intranasal midazolam"="purple4",
-                                "intranasal diazepam"="greenyellow")) +
+                                "intranasal diazepam"="greenyellow",
+                                "oral clonazepam"="orange")) +
   geom_line(lwd=1.5) + 
   theme(legend.position="none", panel.background=element_blank(), panel.grid.major=element_blank(), panel.grid.minor=element_blank(), panel.border=element_blank(), axis.ticks=element_blank(),
         axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
@@ -14319,7 +14482,8 @@ rescue_medication_use_per_year_by_chronic_respiratory_failure_no_chronic_respira
                                 aes(x=`year(SVCDATE)`, y=proportion_use_per_year, color=rescue_medication)) + 
   scale_color_manual(values = c("rectal diazepam" = "red",
                                 "intranasal midazolam"="purple4",
-                                "intranasal diazepam"="greenyellow")) +
+                                "intranasal diazepam"="greenyellow",
+                                "oral clonazepam"="orange")) +
   geom_line(lwd=1.5) + 
   theme(legend.position="none", panel.background=element_blank(), panel.grid.major=element_blank(), panel.grid.minor=element_blank(), panel.border=element_blank(), axis.ticks=element_blank(),
         axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
@@ -14362,7 +14526,8 @@ rescue_medication_use_per_year_by_rural_rural_plot <- ggplot(data=rescue_medicat
                                 aes(x=`year(SVCDATE)`, y=proportion_use_per_year, color=rescue_medication)) + 
   scale_color_manual(values = c("rectal diazepam" = "red",
                                 "intranasal midazolam"="purple4",
-                                "intranasal diazepam"="greenyellow")) +
+                                "intranasal diazepam"="greenyellow",
+                                "oral clonazepam"="orange")) +
   geom_line(lwd=1.5) + 
   theme(legend.position="none", panel.background=element_blank(), panel.grid.major=element_blank(), panel.grid.minor=element_blank(), panel.border=element_blank(), axis.ticks=element_blank(),
         axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
@@ -14378,7 +14543,8 @@ rescue_medication_use_per_year_by_rural_urban_plot <- ggplot(data=rescue_medicat
                                 aes(x=`year(SVCDATE)`, y=proportion_use_per_year, color=rescue_medication)) + 
   scale_color_manual(values = c("rectal diazepam" = "red",
                                 "intranasal midazolam"="purple4",
-                                "intranasal diazepam"="greenyellow")) +
+                                "intranasal diazepam"="greenyellow",
+                                "oral clonazepam"="orange")) +
   geom_line(lwd=1.5) + 
   theme(legend.position="none", panel.background=element_blank(), panel.grid.major=element_blank(), panel.grid.minor=element_blank(), panel.border=element_blank(), axis.ticks=element_blank(),
         axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
@@ -14400,12 +14566,14 @@ rescue_medication_cost_per_year <- inflation_adjusted_rescue_medication_epilepsy
     AWP_per_unit = case_when(
       rescue_medication=="rectal diazepam" ~ AWP / METQTY,
       rescue_medication=="intranasal midazolam" ~ (AWP / METQTY) * 2,
-      rescue_medication=="intranasal diazepam" ~ (AWP / METQTY) * 2
+      rescue_medication=="intranasal diazepam" ~ (AWP / METQTY) * 2,
+      rescue_medication=="oral clonazepam" ~ AWP / METQTY
     ),
     patient_cost_per_unit = case_when(
       rescue_medication=="rectal diazepam" ~ sum(COINS, COPAY, DEDUCT, DISPFEE) / METQTY,
       rescue_medication=="intranasal midazolam" ~ ((sum(COINS, COPAY, DEDUCT, DISPFEE) / METQTY)) * 2,
-      rescue_medication=="intranasal diazepam" ~ ((sum(COINS, COPAY, DEDUCT, DISPFEE) / METQTY)) * 2
+      rescue_medication=="intranasal diazepam" ~ ((sum(COINS, COPAY, DEDUCT, DISPFEE) / METQTY)) * 2,
+      rescue_medication=="oral clonazepam" ~ sum(COINS, COPAY, DEDUCT, DISPFEE) / METQTY
     )
   ) %>% 
   ungroup() %>% 
@@ -14431,12 +14599,14 @@ rescue_medication_cost_per_year_for_jonckheere <- inflation_adjusted_rescue_medi
     AWP_per_unit = case_when(
       rescue_medication=="rectal diazepam" ~ AWP / METQTY,
       rescue_medication=="intranasal midazolam" ~ (AWP / METQTY) * 2,
-      rescue_medication=="intranasal diazepam" ~ (AWP / METQTY) * 2
+      rescue_medication=="intranasal diazepam" ~ (AWP / METQTY) * 2,
+      rescue_medication=="oral clonazepam" ~ AWP / METQTY
     ),
     patient_cost_per_unit = case_when(
       rescue_medication=="rectal diazepam" ~ sum(COINS, COPAY, DEDUCT, DISPFEE) / METQTY,
       rescue_medication=="intranasal midazolam" ~ ((sum(COINS, COPAY, DEDUCT, DISPFEE) / METQTY)) * 2,
-      rescue_medication=="intranasal diazepam" ~ ((sum(COINS, COPAY, DEDUCT, DISPFEE) / METQTY)) * 2
+      rescue_medication=="intranasal diazepam" ~ ((sum(COINS, COPAY, DEDUCT, DISPFEE) / METQTY)) * 2,
+      rescue_medication=="oral clonazepam" ~ sum(COINS, COPAY, DEDUCT, DISPFEE) / METQTY
     )
   ) %>% 
   ungroup() %>% 
@@ -14504,12 +14674,14 @@ rescue_medication_cost_per_year_by_generic <- inflation_adjusted_rescue_medicati
     AWP_per_unit = case_when(
       rescue_medication=="rectal diazepam" ~ AWP / METQTY,
       rescue_medication=="intranasal midazolam" ~ (AWP / METQTY) * 2,
-      rescue_medication=="intranasal diazepam" ~ (AWP / METQTY) * 2
+      rescue_medication=="intranasal diazepam" ~ (AWP / METQTY) * 2,
+      rescue_medication=="oral clonazepam" ~ AWP / METQTY
     ),
     patient_cost_per_unit = case_when(
       rescue_medication=="rectal diazepam" ~ sum(COINS, COPAY, DEDUCT, DISPFEE) / METQTY,
       rescue_medication=="intranasal midazolam" ~ ((sum(COINS, COPAY, DEDUCT, DISPFEE) / METQTY)) * 2,
-      rescue_medication=="intranasal diazepam" ~ ((sum(COINS, COPAY, DEDUCT, DISPFEE) / METQTY)) * 2
+      rescue_medication=="intranasal diazepam" ~ ((sum(COINS, COPAY, DEDUCT, DISPFEE) / METQTY)) * 2,
+      rescue_medication=="oral clonazepam" ~ sum(COINS, COPAY, DEDUCT, DISPFEE) / METQTY
     )
   ) %>% 
   ungroup() %>% 
@@ -14612,12 +14784,14 @@ rescue_medication_cost_per_year_by_rescue_medication <- inflation_adjusted_rescu
     AWP_per_unit = case_when(
       rescue_medication=="rectal diazepam" ~ AWP / METQTY,
       rescue_medication=="intranasal midazolam" ~ (AWP / METQTY) * 2,
-      rescue_medication=="intranasal diazepam" ~ (AWP / METQTY) * 2
+      rescue_medication=="intranasal diazepam" ~ (AWP / METQTY) * 2,
+      rescue_medication=="oral clonazepam" ~ AWP / METQTY
     ),
     patient_cost_per_unit = case_when(
       rescue_medication=="rectal diazepam" ~ sum(COINS, COPAY, DEDUCT, DISPFEE) / METQTY,
       rescue_medication=="intranasal midazolam" ~ ((sum(COINS, COPAY, DEDUCT, DISPFEE) / METQTY)) * 2,
-      rescue_medication=="intranasal diazepam" ~ ((sum(COINS, COPAY, DEDUCT, DISPFEE) / METQTY)) * 2
+      rescue_medication=="intranasal diazepam" ~ ((sum(COINS, COPAY, DEDUCT, DISPFEE) / METQTY)) * 2,
+      rescue_medication=="oral clonazepam" ~ sum(COINS, COPAY, DEDUCT, DISPFEE) / METQTY
     )
   ) %>% 
   ungroup() %>% 
@@ -14645,10 +14819,12 @@ rescue_medication_AWP_cost_per_year_by_rescue_medication_plot <- ggplot(data=res
   geom_ribbon(aes(x=`year(SVCDATE)`, ymin=p25_AWP, ymax=p75_AWP, fill=rescue_medication), alpha=0.1) +
   scale_color_manual(values = c("rectal diazepam" = "red",
                                 "intranasal midazolam"="purple4",
-                                "intranasal diazepam"="greenyellow")) +
+                                "intranasal diazepam"="greenyellow",
+                                "oral clonazepam"="orange")) +
   scale_fill_manual(values = c("rectal diazepam" = "red",
                                 "intranasal midazolam"="purple4",
-                                "intranasal diazepam"="greenyellow")) +
+                                "intranasal diazepam"="greenyellow",
+                               "oral clonazepam"="orange")) +
   theme(legend.position="none", panel.background=element_blank(), panel.grid.major=element_blank(), panel.grid.minor=element_blank(), panel.border=element_blank(), axis.ticks=element_blank(),
         axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
         axis.title=element_text(size=20, face="bold")) +
@@ -14666,10 +14842,12 @@ rescue_medication_patient_cost_per_year_by_rescue_medication_plot <- ggplot(data
   geom_ribbon(aes(x=`year(SVCDATE)`, ymin=p25_patient_cost, ymax=p75_patient_cost, fill=rescue_medication), alpha=0.1) +
   scale_color_manual(values = c("rectal diazepam" = "red",
                                 "intranasal midazolam"="purple4",
-                                "intranasal diazepam"="greenyellow")) +
+                                "intranasal diazepam"="greenyellow",
+                                "oral clonazepam"="orange")) +
   scale_fill_manual(values = c("rectal diazepam" = "red",
                                 "intranasal midazolam"="purple4",
-                                "intranasal diazepam"="greenyellow")) +
+                                "intranasal diazepam"="greenyellow",
+                                "oral clonazepam"="orange")) +
   theme(legend.position="none", panel.background=element_blank(), panel.grid.major=element_blank(), panel.grid.minor=element_blank(), panel.border=element_blank(), axis.ticks=element_blank(),
         axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
         axis.title=element_text(size=20, face="bold")) +
