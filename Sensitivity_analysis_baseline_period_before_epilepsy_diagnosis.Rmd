@@ -1,5 +1,5 @@
 
-# Evolution in the prescription and cost of non-intravenous rescue benzodiazepines for the treatment of seizure emergencies
+# Sensitivity analysis using the best diagnostic accuracy epilepsy definition in: Evolution in the prescription and cost of non-intravenous rescue benzodiazepines for the treatment of seizure emergencies
 
 
 
@@ -11220,13 +11220,264 @@ chronic_respiratory_failure <- bind_rows(chronic_respiratory_failure_2006_i, chr
 
 
 
+Eliminate patients without an initial period of at least 3 years of no seizures, no epilepsy, and no antiseizure medication prescription
+```{r}
+# First episode of seizure or epilepsy
+first_episode_seizure_or_epilepsy <- IP_ED %>% 
+  filter(epilepsy_encounter==1) %>% 
+  arrange(ENROLID, SVCDATE) %>% 
+  distinct(ENROLID, .keep_all=TRUE) %>% 
+  select(ENROLID, SVCDATE) %>% 
+  rename(date_first_seizure_or_epilepsy = SVCDATE) %>% 
+  collect()
+
+
+
+
+# First ASM prescription
+first_ASM_prescription <- patients_with_epilepsy_and_ASM_no_gaps %>% 
+  arrange(ENROLID, SVCDATE) %>% 
+  distinct(ENROLID, .keep_all=TRUE) %>% 
+  select(ENROLID, SVCDATE, AGE) %>% 
+  rename(date_first_ASM_prescription = SVCDATE) %>% 
+  collect()
+
+
+
+
+#Identify the period of 3 years with no epilepsy, seizures, or ASM prescription
+
+#################################2006#################################
+enrollment_2006 <- ms_t_2006 %>% 
+  select(ENROLID, DTSTART, DTEND, MEMDAYS) %>% 
+  mutate(across(c(ENROLID, MEMDAYS), as.numeric)) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  collect() %>% 
+  mutate(across(c(DTSTART, DTEND), mdy))
+
+
+#################################2007#################################
+enrollment_2007 <- ms_t_2007 %>% 
+  select(ENROLID, DTSTART, DTEND, MEMDAYS) %>% 
+  mutate(across(c(ENROLID, MEMDAYS), as.numeric)) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  collect() %>% 
+  mutate(across(c(DTSTART, DTEND), mdy))
+
+
+#################################2008#################################
+enrollment_2008 <- ms_t_2008 %>% 
+  select(ENROLID, DTSTART, DTEND, MEMDAYS) %>% 
+  mutate(across(c(ENROLID, MEMDAYS), as.numeric)) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  collect() %>% 
+  mutate(across(c(DTSTART, DTEND), mdy))
+
+
+#################################2009#################################
+enrollment_2009 <- ms_t_2009 %>% 
+  select(ENROLID, DTSTART, DTEND, MEMDAYS) %>% 
+  mutate(across(c(ENROLID, MEMDAYS), as.numeric)) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  collect() %>% 
+  mutate(across(c(DTSTART, DTEND), mdy))
+
+
+#################################2010#################################
+enrollment_2010 <- ms_t_2010 %>% 
+  select(ENROLID, DTSTART, DTEND, MEMDAYS) %>% 
+  mutate(across(c(ENROLID, MEMDAYS), as.numeric)) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  collect() %>% 
+  mutate(across(c(DTSTART, DTEND), mdy))
+
+
+#################################2011#################################
+enrollment_2011 <- ms_t_2011 %>% 
+  select(ENROLID, DTSTART, DTEND, MEMDAYS) %>% 
+  mutate(across(c(ENROLID, MEMDAYS), as.numeric)) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  collect() %>% 
+  mutate(across(c(DTSTART, DTEND), mdy))
+
+
+#################################2012#################################
+enrollment_2012 <- ms_t_2012 %>% 
+  select(ENROLID, DTSTART, DTEND, MEMDAYS) %>% 
+  mutate(across(c(ENROLID, MEMDAYS), as.numeric)) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  collect() %>% 
+  mutate(across(c(DTSTART, DTEND), mdy))
+
+
+#################################2013#################################
+enrollment_2013 <- ms_t_2013 %>% 
+  select(ENROLID, DTSTART, DTEND, MEMDAYS) %>% 
+  mutate(across(c(ENROLID, MEMDAYS), as.numeric)) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  collect() %>% 
+  mutate(across(c(DTSTART, DTEND), mdy))
+
+
+#################################2014#################################
+enrollment_2014 <- ms_t_2014 %>% 
+  select(ENROLID, DTSTART, DTEND, MEMDAYS) %>% 
+  mutate(across(c(ENROLID, MEMDAYS), as.numeric)) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  collect() %>% 
+  mutate(across(c(DTSTART, DTEND), mdy))
+
+
+#################################2015#################################
+enrollment_2015 <- ms_t_2015 %>% 
+  select(ENROLID, DTSTART, DTEND, MEMDAYS) %>% 
+  mutate(across(c(ENROLID, MEMDAYS), as.numeric)) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  collect() %>% 
+  mutate(across(c(DTSTART, DTEND), mdy))
+
+
+#################################2016#################################
+enrollment_2016 <- ms_t_2016 %>% 
+  select(ENROLID, DTSTART, DTEND, MEMDAYS) %>% 
+  mutate(across(c(ENROLID, MEMDAYS), as.numeric)) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  collect() %>% 
+  mutate(across(c(DTSTART, DTEND), mdy))
+
+
+#################################2017#################################
+enrollment_2017 <- ms_t_2017 %>% 
+  select(ENROLID, DTSTART, DTEND, MEMDAYS) %>% 
+  mutate(across(c(ENROLID, MEMDAYS), as.numeric)) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  collect() %>% 
+  mutate(across(c(DTSTART, DTEND), mdy))
+
+
+#################################2018#################################
+enrollment_2018 <- ms_t_2018 %>% 
+  select(ENROLID, DTSTART, DTEND, MEMDAYS) %>% 
+  mutate(across(c(ENROLID, MEMDAYS), as.numeric)) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  collect() %>% 
+  mutate(across(c(DTSTART, DTEND), mdy))
+
+
+#################################2019#################################
+enrollment_2019 <- ms_t_2019 %>% 
+  select(ENROLID, DTSTART, DTEND, MEMDAYS) %>% 
+  mutate(across(c(ENROLID, MEMDAYS), as.numeric)) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  collect() %>% 
+  mutate(across(c(DTSTART, DTEND), mdy))
+
+
+#################################2020#################################
+enrollment_2020 <- ms_t_2020 %>% 
+  select(ENROLID, DTSTART, DTEND, MEMDAYS) %>% 
+  mutate(across(c(ENROLID, MEMDAYS), as.numeric)) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  collect() %>% 
+  mutate(across(c(DTSTART, DTEND), mdy))
+
+
+#################################2021#################################
+enrollment_2021 <- ms_t_2021 %>% 
+  select(ENROLID, DTSTART, DTEND, MEMDAYS) %>% 
+  mutate(across(c(ENROLID, MEMDAYS), as.numeric)) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  collect() %>% 
+  mutate(across(c(DTSTART, DTEND), mdy))
+
+
+#################################2022#################################
+enrollment_2022 <- ms_t_2022 %>% 
+  select(ENROLID, DTSTART, DTEND, MEMDAYS) %>% 
+  mutate(across(c(ENROLID, MEMDAYS), as.numeric)) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  collect() %>% 
+  mutate(across(c(DTSTART, DTEND), mdy))
+
+
+
+
+# Enrollment 
+enrollment <- bind_rows(enrollment_2006, enrollment_2007, enrollment_2008, enrollment_2009, enrollment_2010, enrollment_2011, enrollment_2012, enrollment_2013, enrollment_2014, enrollment_2015, enrollment_2016, enrollment_2017, enrollment_2018, enrollment_2019, enrollment_2020, enrollment_2021, enrollment_2022) %>% 
+  arrange(ENROLID, DTSTART) %>% 
+  distinct(ENROLID, .keep_all=TRUE) %>% 
+  left_join(first_episode_seizure_or_epilepsy, by="ENROLID") %>% 
+  mutate(baseline_period = as.numeric(date_first_seizure_or_epilepsy - DTSTART)) %>% 
+  left_join(first_ASM_prescription, by="ENROLID") %>% 
+  mutate(baseline_period_before_first_ASM = as.numeric(date_first_ASM_prescription - DTSTART)) %>% 
+  mutate(baseline_period_3_years = case_when(
+    ( (baseline_period_before_first_ASM >= 0) & (AGE == 0) ) ~ "yes",
+    ( (baseline_period_before_first_ASM >= 0) & (AGE == 1) ) ~ "yes",
+    ( (baseline_period >= 365.24219) & (baseline_period_before_first_ASM >= 0) & (AGE == 2) ) ~ "yes",
+    ( (baseline_period >= 2*365.24219) & (baseline_period_before_first_ASM >= 0) & (AGE == 3) ) ~ "yes",
+    ( (baseline_period >= 3*365.24219) & (baseline_period_before_first_ASM >= 0) & (AGE > 3) ) ~ "yes",
+    TRUE ~ "no")) %>% 
+  collect()
+
+
+
+
+# Reconvert the databases to reflect a baseline period of 3 years
+enrollment_baseline_3_years <- enrollment %>% 
+  filter(baseline_period_3_years == "yes") %>% 
+  distinct(ENROLID) %>% 
+  collect()
+  
+  
+patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years <- patients_with_epilepsy_and_ASM_no_gaps %>% 
+  filter(ENROLID %in% !!enrollment_baseline_3_years$ENROLID) %>% 
+  collect()
+
+
+patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years_n <- patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years %>% distinct(ENROLID) %>% nrow()
+patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years_n
+
+
+refractory_epilepsy_baseline_3_years <- refractory_epilepsy %>% 
+  filter(ENROLID %in% !!enrollment_baseline_3_years$ENROLID) %>% 
+  collect()
+
+
+epilepsy_encounters_data_baseline_3_years <- epilepsy_encounters_data %>% 
+  filter(ENROLID %in% !!enrollment_baseline_3_years$ENROLID) %>% 
+  collect()  
+
+
+Dementia_baseline_3_years <- Dementia %>% 
+  filter(ENROLID %in% !!enrollment_baseline_3_years$ENROLID) %>% 
+  collect()
+
+
+chronic_respiratory_failure_baseline_3_years <- chronic_respiratory_failure %>% 
+  filter(ENROLID %in% !!enrollment_baseline_3_years$ENROLID) %>% 
+  collect()
+
+
+epilepsy_baseline_3_years <- epilepsy %>% 
+  filter(ENROLID %in% !!enrollment_baseline_3_years$ENROLID) %>% 
+  collect()
+
+
+all_epilepsy_encounters_data_baseline_3_years <- all_epilepsy_encounters_data %>% 
+  filter(ENROLID %in% !!enrollment_baseline_3_years$ENROLID) %>% 
+  collect()
+```
+
+
+
+
 Patients with epilepsy with at least 6 months between first and last chronic antiseizure medication prescription and at least one rescue medication prescribed
 ```{r}
 # Rescue medications
 
 ####################################2006####################################
 rescue_medication_epilepsy_2006 <- ms_d_2006 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>% 
   filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2006) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2006) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2006) )  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
@@ -11241,7 +11492,7 @@ rescue_medication_epilepsy_2006 <- ms_d_2006 %>%
 
 ####################################2007####################################
 rescue_medication_epilepsy_2007 <- ms_d_2007 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>% 
   filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2007) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2007) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2007) )  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
@@ -11256,7 +11507,7 @@ rescue_medication_epilepsy_2007 <- ms_d_2007 %>%
 
 ####################################2008####################################
 rescue_medication_epilepsy_2008 <- ms_d_2008 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>% 
   filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2008) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2008) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2008) )  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
@@ -11271,7 +11522,7 @@ rescue_medication_epilepsy_2008 <- ms_d_2008 %>%
 
 ####################################2009####################################
 rescue_medication_epilepsy_2009 <- ms_d_2009 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>% 
   filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2009) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2009) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2009) )  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
@@ -11286,7 +11537,7 @@ rescue_medication_epilepsy_2009 <- ms_d_2009 %>%
 
 ####################################2010####################################
 rescue_medication_epilepsy_2010 <- ms_d_2010 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>% 
   filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2010) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2010) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2010) )  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
@@ -11301,7 +11552,7 @@ rescue_medication_epilepsy_2010 <- ms_d_2010 %>%
 
 ####################################2011####################################
 rescue_medication_epilepsy_2011 <- ms_d_2011 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>% 
   filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2011) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2011) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2011) )  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
@@ -11316,7 +11567,7 @@ rescue_medication_epilepsy_2011 <- ms_d_2011 %>%
 
 ####################################2012####################################
 rescue_medication_epilepsy_2012 <- ms_d_2012 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>% 
   filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2012) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2012) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2012) )  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
@@ -11331,7 +11582,7 @@ rescue_medication_epilepsy_2012 <- ms_d_2012 %>%
 
 ####################################2013####################################
 rescue_medication_epilepsy_2013 <- ms_d_2013 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>% 
   filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2013) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2013) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2013) )  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
@@ -11346,7 +11597,7 @@ rescue_medication_epilepsy_2013 <- ms_d_2013 %>%
 
 ####################################2014####################################
 rescue_medication_epilepsy_2014 <- ms_d_2014 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>% 
   filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2014) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2014) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2014) )  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
@@ -11361,7 +11612,7 @@ rescue_medication_epilepsy_2014 <- ms_d_2014 %>%
 
 ####################################2015####################################
 rescue_medication_epilepsy_2015 <- ms_d_2015 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>% 
   filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2015) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2015) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2015) )  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
@@ -11376,7 +11627,7 @@ rescue_medication_epilepsy_2015 <- ms_d_2015 %>%
 
 ####################################2016####################################
 rescue_medication_epilepsy_2016 <- ms_d_2016 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>% 
   filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2016) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2016) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2016) )  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
@@ -11391,7 +11642,7 @@ rescue_medication_epilepsy_2016 <- ms_d_2016 %>%
 
 ####################################2017####################################
 rescue_medication_epilepsy_2017 <- ms_d_2017 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>% 
   filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2017) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2017) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2017) )  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
@@ -11406,7 +11657,7 @@ rescue_medication_epilepsy_2017 <- ms_d_2017 %>%
 
 ####################################2018####################################
 rescue_medication_epilepsy_2018 <- ms_d_2018 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>% 
   filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2018) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2018) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2018) )  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
@@ -11421,7 +11672,7 @@ rescue_medication_epilepsy_2018 <- ms_d_2018 %>%
 
 ####################################2019####################################
 rescue_medication_epilepsy_2019 <- ms_d_2019 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>% 
   filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2019) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2019) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2019) )  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
@@ -11436,7 +11687,7 @@ rescue_medication_epilepsy_2019 <- ms_d_2019 %>%
 
 ####################################2020####################################
 rescue_medication_epilepsy_2020 <- ms_d_2020 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>% 
   filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2020) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2020) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2020) )  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
@@ -11451,7 +11702,7 @@ rescue_medication_epilepsy_2020 <- ms_d_2020 %>%
 
 ####################################2021####################################
 rescue_medication_epilepsy_2021 <- ms_d_2021 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>% 
   filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2021) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2021) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2021) )  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
@@ -11466,7 +11717,7 @@ rescue_medication_epilepsy_2021 <- ms_d_2021 %>%
 
 ####################################2022####################################
 rescue_medication_epilepsy_2022 <- ms_d_2022 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>% 
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>% 
   filter( (NDCNUM %in% codes_NDCNUM_rectal_DZP_2022) | (NDCNUM %in% codes_NDCNUM_intranasal_MDZ_2022) | (NDCNUM %in% codes_NDCNUM_intranasal_DZP_2022) )  %>%
   select(ENROLID, SVCDATE, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY) %>% 
   mutate(across(c(ENROLID, AWP, COB, COINS, COPAY, DEDUCT, DISPFEE, GENERID, INGCOST, NETPAY, PAY, SALETAX, GENIND, DAYSUPP, RXMR, NDCNUM, METQTY), as.numeric)) %>%
@@ -11497,7 +11748,7 @@ rescue_medication_patients_n
 
 
 # Proportion of patients with rescue medication among patients with epilepsy on chronic antiseizure medications
-rescue_medication_patients_n / patients_with_epilepsy_and_ASM_no_gaps_n
+rescue_medication_patients_n / patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years_n
 ```
 
 
@@ -12284,119 +12535,119 @@ Extract information for demographics
 # Extract information from demographics 
 #################################2006#################################
 demographics_2006 <- ms_t_2006 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>%
   select(ENROLID, SEX, DOBYR, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, DTSTART, DTEND, MEMDAYS, MSA, INDSTRY) %>% 
   mutate(across(c(ENROLID, SEX, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, MEMDAYS, MSA), as.numeric)) %>% 
   collect()
 
 #################################2007#################################
 demographics_2007 <- ms_t_2007 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>%
   select(ENROLID, SEX, DOBYR, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, DTSTART, DTEND, MEMDAYS, MSA, INDSTRY) %>% 
   mutate(across(c(ENROLID, SEX, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, MEMDAYS, MSA), as.numeric)) %>% 
   collect()
 
 #################################2008#################################
 demographics_2008 <- ms_t_2008 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>%
   select(ENROLID, SEX, DOBYR, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, DTSTART, DTEND, MEMDAYS, MSA, INDSTRY) %>% 
   mutate(across(c(ENROLID, SEX, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, MEMDAYS, MSA), as.numeric)) %>% 
   collect()
 
 #################################2009#################################
 demographics_2009 <- ms_t_2009 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>%
   select(ENROLID, SEX, DOBYR, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, DTSTART, DTEND, MEMDAYS, MSA, INDSTRY) %>% 
   mutate(across(c(ENROLID, SEX, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, MEMDAYS, MSA), as.numeric)) %>% 
   collect()
 
 #################################2010#################################
 demographics_2010 <- ms_t_2010 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>%
   select(ENROLID, SEX, DOBYR, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, DTSTART, DTEND, MEMDAYS, MSA, INDSTRY) %>% 
   mutate(across(c(ENROLID, SEX, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, MEMDAYS, MSA), as.numeric)) %>%
   collect()
 
 #################################2011#################################
 demographics_2011 <- ms_t_2011 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>%
   select(ENROLID, SEX, DOBYR, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, DTSTART, DTEND, MEMDAYS, MSA, INDSTRY) %>% 
   mutate(across(c(ENROLID, SEX, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, MEMDAYS, MSA), as.numeric)) %>% 
   collect()
 
 #################################2012#################################
 demographics_2012 <- ms_t_2012 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>%
   select(ENROLID, SEX, DOBYR, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, DTSTART, DTEND, MEMDAYS, MSA, INDSTRY) %>% 
   mutate(across(c(ENROLID, SEX, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, MEMDAYS, MSA), as.numeric)) %>% 
   collect()
 
 #################################2013#################################
 demographics_2013 <- ms_t_2013 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>%
   select(ENROLID, SEX, DOBYR, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, DTSTART, DTEND, MEMDAYS, MSA, INDSTRY) %>% 
   mutate(across(c(ENROLID, SEX, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, MEMDAYS, MSA), as.numeric)) %>% 
   collect()
 
 #################################2014#################################
 demographics_2014 <- ms_t_2014 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>%
   select(ENROLID, SEX, DOBYR, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, DTSTART, DTEND, MEMDAYS, MSA, INDSTRY) %>% 
   mutate(across(c(ENROLID, SEX, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, MEMDAYS, MSA), as.numeric)) %>% 
   collect()
 
 #################################2015#################################
 demographics_2015 <- ms_t_2015 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>%
   select(ENROLID, SEX, DOBYR, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, DTSTART, DTEND, MEMDAYS, MSA, INDSTRY) %>% 
   mutate(across(c(ENROLID, SEX, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, MEMDAYS, MSA), as.numeric)) %>% 
   collect()
 
 #################################2016#################################
 demographics_2016 <- ms_t_2016 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>%
   select(ENROLID, SEX, DOBYR, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, DTSTART, DTEND, MEMDAYS, MSA, INDSTRY) %>% 
   mutate(across(c(ENROLID, SEX, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, MEMDAYS, MSA), as.numeric)) %>% 
   collect()
 
 #################################2017#################################
 demographics_2017 <- ms_t_2017 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>%
   select(ENROLID, SEX, DOBYR, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, DTSTART, DTEND, MEMDAYS, MSA, INDSTRY) %>% 
   mutate(across(c(ENROLID, SEX, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, MEMDAYS, MSA), as.numeric)) %>% 
   collect()
 
 #################################2018#################################
 demographics_2018 <- ms_t_2018 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>%
   select(ENROLID, SEX, DOBYR, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, DTSTART, DTEND, MEMDAYS, MSA, INDSTRY) %>% 
   mutate(across(c(ENROLID, SEX, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, MEMDAYS, MSA), as.numeric)) %>% 
   collect()
 
 #################################2019#################################
 demographics_2019 <- ms_t_2019 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>%
   select(ENROLID, SEX, DOBYR, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, DTSTART, DTEND, MEMDAYS, MSA, INDSTRY) %>% 
   mutate(across(c(ENROLID, SEX, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, MEMDAYS, MSA), as.numeric)) %>% 
   collect()
 
 #################################2020#################################
 demographics_2020 <- ms_t_2020 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>%
   select(ENROLID, SEX, DOBYR, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, DTSTART, DTEND, MEMDAYS, MSA, INDSTRY) %>% 
   mutate(across(c(ENROLID, SEX, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, MEMDAYS, MSA), as.numeric)) %>% 
   collect()
 
 #################################2021#################################
 demographics_2021 <- ms_t_2021 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>%
   select(ENROLID, SEX, DOBYR, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, DTSTART, DTEND, MEMDAYS, MSA, INDSTRY) %>% 
   mutate(across(c(ENROLID, SEX, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, MEMDAYS, MSA), as.numeric)) %>% 
   collect()
 
 #################################2022#################################
 demographics_2022 <- ms_t_2022 %>% 
-  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps$ENROLID) %>%
+  filter(ENROLID %in% !!patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years$ENROLID) %>%
   select(ENROLID, SEX, DOBYR, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, DTSTART, DTEND, MEMDAYS, MSA, INDSTRY) %>% 
   mutate(across(c(ENROLID, SEX, REGION, EECLASS, EESTATU, EMPREL, EGEOLOC, MEMDAYS, MSA), as.numeric)) %>% 
   collect()
@@ -12407,7 +12658,7 @@ demographics <- bind_rows(demographics_2006, demographics_2007, demographics_200
   mutate(across(ENROLID, as.numeric)) %>% 
   filter(ENROLID>0) %>%    
   distinct(ENROLID, .keep_all=TRUE) %>% 
-  left_join(patients_with_epilepsy_and_ASM_no_gaps, by=c("ENROLID", "DOBYR")) %>% 
+  left_join(patients_with_epilepsy_and_ASM_no_gaps_baseline_3_years, by=c("ENROLID", "DOBYR")) %>% 
   arrange(ENROLID, SVCDATE) %>% 
   group_by(ENROLID) %>% 
   mutate(age_first_ASM_prescription = first(year(SVCDATE) - DOBYR)) %>% 
@@ -12422,7 +12673,7 @@ demographics <- bind_rows(demographics_2006, demographics_2007, demographics_200
 pediatric <- demographics %>% 
   arrange(ENROLID, SVCDATE) %>% 
   distinct(ENROLID, .keep_all=TRUE) %>% 
-  filter(age_first_ASM_prescription<=18) %>% 
+  filter(age_first_ASM_prescription <=18 ) %>% 
   collect()
 
 demographics <- demographics %>% 
@@ -12455,7 +12706,7 @@ demographics <- demographics %>%
 # Create variable refractory epilepsy
 demographics <- demographics %>% 
   mutate(refractory_epilepsy_case = case_when(
-    ENROLID %in% !!refractory_epilepsy$ENROLID ~ "refractory",
+    ENROLID %in% !!refractory_epilepsy_baseline_3_years$ENROLID ~ "refractory",
     TRUE ~ "non-refractory"
   )) %>% 
   collect()
@@ -12475,7 +12726,7 @@ demographics <- demographics %>%
 
 # Incorporate variables on inpatient or emergency department epilepsy encounter
 demographics <- demographics %>%
-  left_join(epilepsy_encounters_data, by="ENROLID") %>% 
+  left_join(epilepsy_encounters_data_baseline_3_years, by="ENROLID") %>% 
   mutate(total_epilepsy_encounters =
            case_when(
              is.na(total_epilepsy_encounters) ~ 0,
@@ -12493,7 +12744,7 @@ demographics <- demographics %>%
 
 # Incorporate variable dementia
 demographics <- demographics %>% 
-  left_join(Dementia, by="ENROLID") %>% 
+  left_join(Dementia_baseline_3_years, by="ENROLID") %>% 
   collect()
 
 
@@ -12501,7 +12752,7 @@ demographics <- demographics %>%
 
 # Incorporate variable chronic respiratory failure
 demographics <- demographics %>% 
-  left_join(chronic_respiratory_failure, by="ENROLID") %>% 
+  left_join(chronic_respiratory_failure_baseline_3_years, by="ENROLID") %>% 
   collect()
 
 
@@ -13011,51 +13262,6 @@ industry_without_rescue_medication <- demographics_without_rescue_medication %>%
   reframe(
     industry = CrossTable(INDSTRY)
   )
-
-
-
-
-# Comment on the proportion of rescue medication among the spouses
-spouses_with_rescue_medication <- demographics_with_rescue_medication %>% 
-  filter(EMPREL==2) %>% 
-  distinct(ENROLID, .keep_all=TRUE) %>% 
-    reframe(
-    sex = CrossTable(SEX)
-  )
-
-spouses_without_rescue_medication <- demographics_without_rescue_medication %>% 
-  filter(EMPREL==2) %>% 
-  distinct(ENROLID, .keep_all=TRUE) %>% 
-    reframe(
-    sex = CrossTable(SEX)
-  )
-
-
-spouses_with_rescue_medication$sex$t[1] / (spouses_with_rescue_medication$sex$t[1] + spouses_without_rescue_medication$sex$t[1])
-
-spouses_with_rescue_medication$sex$t[2] / (spouses_with_rescue_medication$sex$t[2] + spouses_without_rescue_medication$sex$t[2])
-
-
-
-
-employees_with_rescue_medication <- demographics_with_rescue_medication %>% 
-  filter(EMPREL==1) %>% 
-  distinct(ENROLID, .keep_all=TRUE) %>% 
-    reframe(
-    sex = CrossTable(SEX)
-  )
-
-employees_without_rescue_medication <- demographics_without_rescue_medication %>% 
-  filter(EMPREL==1) %>% 
-  distinct(ENROLID, .keep_all=TRUE) %>% 
-    reframe(
-    sex = CrossTable(SEX)
-  )
-
-
-employees_with_rescue_medication$sex$t[1] / (employees_with_rescue_medication$sex$t[1] + employees_without_rescue_medication$sex$t[1])
-
-employees_with_rescue_medication$sex$t[2] / (employees_with_rescue_medication$sex$t[2] + employees_without_rescue_medication$sex$t[2])
 ```
 
 
@@ -13133,10 +13339,10 @@ jonckheere_proportion_with_rescue_medication_per_year_p_value_2018_2022
 # Proportion of patients with at least one rescue medication prescription per year figure
 proportion_with_rescue_medication_per_year_plot <- ggplot(data=proportion_with_rescue_medication_per_year,
                                 aes(x=year, y=proportion_patients_with_rescue_medication_per_year)) + 
-  geom_line(lwd=1.5, color="#67771a") + 
+  geom_line(lwd=1.5, color="darkgreen") + 
   theme(legend.position="none", panel.background=element_blank(), panel.grid.major=element_blank(), panel.grid.minor=element_blank(), panel.border=element_blank(), axis.ticks=element_blank(),
-        axis.text=element_text(size=14, face="bold", family="Calibri"), axis.text.x=element_text(angle=45, hjust=1),
-        axis.title=element_text(size=20, face="bold", family="Calibri")) +
+        axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
+        axis.title=element_text(size=20, face="bold")) +
   scale_x_continuous(name="Year", breaks=2006:2022) +
   scale_y_continuous(name="Proportion", breaks=seq(0, 1, 0.1), limits = c(0, 1))
 proportion_with_rescue_medication_per_year_plot
@@ -13149,7 +13355,7 @@ proportion_with_rescue_medication_per_year_plot_detail <- ggplot(data=proportion
         axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
         axis.title=element_text(size=20, face="bold")) +
   scale_x_continuous(name="Year", breaks=2006:2022) +
-  scale_y_continuous(name="Proportion", breaks=seq(0, 0.15, 0.025), limits = c(0, 0.15))
+  scale_y_continuous(name="Proportion", breaks=seq(0, 0.2, 0.025), limits = c(0, 0.2))
 proportion_with_rescue_medication_per_year_plot_detail
 
 
@@ -13264,17 +13470,17 @@ jonckheere_proportion_with_rescue_medication_per_year_by_age_groups_more_than_60
 # Proportion of patients with at least one rescue medication prescription per year by age groups figure
 proportion_with_rescue_medication_per_year_by_age_groups_plot <- ggplot(data=proportion_with_rescue_medication_per_year_by_age_groups,
                                 aes(x=year, y=proportion_patients_with_rescue_medication_per_year, color=age_groups)) + 
-  scale_color_manual(values = c("0-5 years" = "#5698a3",
-                                "6-12 years"="#ce8080",
-                                "13-21 years"="#002157",
-                                "22-35 years"="#e37c1d",
-                                "36-50 years"="#abb47d",
-                                "51-60 years"="#a1c5cb",
-                                "> 60 years"="#a30234")) +
+  scale_color_manual(values = c("0-5 years" = "aquamarine4",
+                                "6-12 years"="deeppink",
+                                "13-21 years"="navyblue",
+                                "22-35 years"="darkorange2",
+                                "36-50 years"="green",
+                                "51-60 years"="grey28",
+                                "> 60 years"="red")) +
   geom_line(lwd=1.5) + 
   theme(legend.position="none", panel.background=element_blank(), panel.grid.major=element_blank(), panel.grid.minor=element_blank(), panel.border=element_blank(), axis.ticks=element_blank(),
-        axis.text=element_text(size=14, face="bold", family="Calibri"), axis.text.x=element_text(angle=45, hjust=1),
-        axis.title=element_text(size=20, face="bold", family="Calibri")) +
+        axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
+        axis.title=element_text(size=20, face="bold")) +
   scale_x_continuous(name="Year", breaks=2006:2022) +
   scale_y_continuous(name="Proportion", breaks=seq(0, 1, 0.1), limits = c(0, 1))
 proportion_with_rescue_medication_per_year_by_age_groups_plot
@@ -13359,12 +13565,12 @@ jonckheere_proportion_with_rescue_medication_per_year_by_refractory_epilepsy_non
 # Proportion of patients with at least one rescue medication prescription per year by refractory epilepsy figure
 proportion_with_rescue_medication_per_year_by_refractory_epilepsy_plot <- ggplot(data=proportion_with_rescue_medication_per_year_by_refractory_epilepsy,
                                 aes(x=year, y=proportion_patients_with_rescue_medication_per_year, color=refractory_epilepsy_case)) + 
-  scale_color_manual(values = c("refractory" = "#0076c0",
-                                "non-refractory"="#ce8080")) +
+  scale_color_manual(values = c("refractory" = "dodgerblue",
+                                "non-refractory"="salmon4")) +
   geom_line(lwd=1.5) + 
   theme(legend.position="none", panel.background=element_blank(), panel.grid.major=element_blank(), panel.grid.minor=element_blank(), panel.border=element_blank(), axis.ticks=element_blank(),
-        axis.text=element_text(size=14, face="bold", family="Calibri"), axis.text.x=element_text(angle=45, hjust=1),
-        axis.title=element_text(size=20, face="bold", family="Calibri")) +
+        axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
+        axis.title=element_text(size=20, face="bold")) +
   scale_x_continuous(name="Year", breaks=2006:2022) +
   scale_y_continuous(name="Proportion", breaks=seq(0, 1, 0.1), limits = c(0, 1))
 proportion_with_rescue_medication_per_year_by_refractory_epilepsy_plot
@@ -13454,13 +13660,13 @@ jonckheere_proportion_with_rescue_medication_per_year_by_IP_ED_epilepsy_visits_m
 # Proportion of patients with at least one rescue medication prescription per year by emergency department visit or hospital admission figure
 proportion_with_rescue_medication_per_year_by_IP_ED_epilepsy_visits_plot <- ggplot(data=proportion_with_rescue_medication_per_year_by_IP_ED_epilepsy_visits,
                                 aes(x=year, y=proportion_patients_with_rescue_medication_per_year, color=total_epilepsy_encounters_categorical)) + 
-  scale_color_manual(values = c("0" = "#5698a3",
-                                "1-3"="#ffde76",
-                                ">3"="#ce8080")) +
+  scale_color_manual(values = c("0" = "cyan2",
+                                "1-3"="yellow1",
+                                ">3"="brown2")) +
   geom_line(lwd=1.5) + 
   theme(legend.position="none", panel.background=element_blank(), panel.grid.major=element_blank(), panel.grid.minor=element_blank(), panel.border=element_blank(), axis.ticks=element_blank(),
-        axis.text=element_text(size=14, face="bold", family="Calibri"), axis.text.x=element_text(angle=45, hjust=1),
-        axis.title=element_text(size=20, face="bold", family="Calibri")) +
+        axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
+        axis.title=element_text(size=20, face="bold")) +
   scale_x_continuous(name="Year", breaks=2006:2022) +
   scale_y_continuous(name="Proportion", breaks=seq(0, 1, 0.1), limits = c(0, 1))
 proportion_with_rescue_medication_per_year_by_IP_ED_epilepsy_visits_plot
@@ -13541,12 +13747,12 @@ jonckheere_proportion_with_rescue_medication_per_year_by_dementia_no_dementia_p_
 # Proportion of patients with at least one rescue medication prescription per year by dementia figure
 proportion_with_rescue_medication_per_year_by_dementia_plot <- ggplot(data=proportion_with_rescue_medication_per_year_by_dementia,
                                 aes(x=year, y=proportion_patients_with_rescue_medication_per_year, color=factor(dementia))) + 
-  scale_color_manual(values = c("0" = "#5698a3", 
-                                "1" = "#a1c5cb")) +
+  scale_color_manual(values = c("0" = "aquamarine4", 
+                                "1" = "gray57")) +
   geom_line(lwd=1.5) + 
   theme(legend.position="none", panel.background=element_blank(), panel.grid.major=element_blank(), panel.grid.minor=element_blank(), panel.border=element_blank(), axis.ticks=element_blank(),
-        axis.text=element_text(size=14, face="bold", family="Calibri"), axis.text.x=element_text(angle=45, hjust=1),
-        axis.title=element_text(size=20, face="bold", family="Calibri")) +
+        axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
+        axis.title=element_text(size=20, face="bold")) +
   scale_x_continuous(name="Year", breaks=2006:2022) +
   scale_y_continuous(name="Proportion", breaks=seq(0, 1, 0.1), limits = c(0, 1))
 proportion_with_rescue_medication_per_year_by_dementia_plot
@@ -13626,12 +13832,12 @@ jonckheere_proportion_with_rescue_medication_per_year_by_chronic_respiratory_fai
 # Proportion of patients with at least one rescue medication prescription per year by chronic respiratory failurea figure
 proportion_with_rescue_medication_per_year_by_chronic_respiratory_failure_plot <- ggplot(data=proportion_with_rescue_medication_per_year_by_chronic_respiratory_failure,
                                 aes(x=year, y=proportion_patients_with_rescue_medication_per_year, color=factor(chronic_respiratory_failure))) + 
-  scale_color_manual(values = c("0" = "#7a5072", 
-                                "1" = "#abb47d")) +
+  scale_color_manual(values = c("0" = "orchid4", 
+                                "1" = "khaki4")) +
   geom_line(lwd=1.5) + 
   theme(legend.position="none", panel.background=element_blank(), panel.grid.major=element_blank(), panel.grid.minor=element_blank(), panel.border=element_blank(), axis.ticks=element_blank(),
-        axis.text=element_text(size=14, face="bold", family="Calibri"), axis.text.x=element_text(angle=45, hjust=1),
-        axis.title=element_text(size=20, face="bold", family="Calibri")) +
+        axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
+        axis.title=element_text(size=20, face="bold")) +
   scale_x_continuous(name="Year", breaks=2006:2022) +
   scale_y_continuous(name="Proportion", breaks=seq(0, 1, 0.1), limits = c(0, 1))
 proportion_with_rescue_medication_per_year_by_chronic_respiratory_failure_plot
@@ -13711,12 +13917,12 @@ jonckheere_proportion_with_rescue_medication_per_year_by_rural_urban_p_value_201
 # Proportion of patients with at least one rescue medication prescription per year by rural figure
 proportion_with_rescue_medication_per_year_by_rural_plot <- ggplot(data=proportion_with_rescue_medication_per_year_by_rural,
                                 aes(x=year, y=proportion_patients_with_rescue_medication_per_year, color=rural)) + 
-  scale_color_manual(values = c("no" = "#7a5072", 
-                                "yes" = "#a1c5cb")) +
+  scale_color_manual(values = c("no" = "hotpink4", 
+                                "yes" = "azure4")) +
   geom_line(lwd=1.5) + 
   theme(legend.position="none", panel.background=element_blank(), panel.grid.major=element_blank(), panel.grid.minor=element_blank(), panel.border=element_blank(), axis.ticks=element_blank(),
-        axis.text=element_text(size=14, face="bold", family="Calibri"), axis.text.x=element_text(angle=45, hjust=1),
-        axis.title=element_text(size=20, face="bold", family="Calibri")) +
+        axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
+        axis.title=element_text(size=20, face="bold")) +
   scale_x_continuous(name="Year", breaks=2006:2022) +
   scale_y_continuous(name="Proportion", breaks=seq(0, 1, 0.1), limits = c(0, 1))
 proportion_with_rescue_medication_per_year_by_rural_plot
@@ -13741,7 +13947,7 @@ proportion_with_rescue_medication_per_year_by_rural_plot_detail
 Time from diagnosis to rescue medication and time from ED or IP epilepsy visit to rescue medication
 ```{r}
 # Rescue medication prescription after epilepsy diagnosis
-epilepsy_first_diagnosis <- epilepsy %>% 
+epilepsy_first_diagnosis <- epilepsy_baseline_3_years %>% 
   arrange(ENROLID, SVCDATE) %>% 
   distinct(ENROLID, .keep_all=TRUE) %>% 
   rename(date_first_diagnosis=SVCDATE) %>% 
@@ -13780,7 +13986,7 @@ rescue_prescriptions_after_epilepsy_IP_ED_encounter <- inflation_adjusted_rescue
   distinct(ENROLID, .keep_all=TRUE) %>% 
   left_join(rescue_prescriptions_after_epilepsy_first_diagnosis, by="ENROLID") %>% 
   filter(post_diagnosis_rescue=="no") %>% 
-  left_join(all_epilepsy_encounters_data, by="ENROLID") %>% 
+  left_join(all_epilepsy_encounters_data_baseline_3_years, by="ENROLID") %>% 
   mutate(time_to_rescue_prescription = as.numeric(SVCDATE - encounter_date)) %>% 
   mutate(prescription_just_after_encounter = case_when(
     ( (time_to_rescue_prescription < 30) & (time_to_rescue_prescription >= 0) ) ~ 1,
@@ -13927,13 +14133,13 @@ rescue_medication_use_per_year
 # Use of rescue medication per year figure
 rescue_medication_use_per_year_plot <- ggplot(data=rescue_medication_use_per_year,
                                 aes(x=`year(SVCDATE)`, y=proportion_use_per_year, color=rescue_medication)) + 
-  scale_color_manual(values = c("rectal diazepam" = "#a30234",
-                                "intranasal midazolam"="#7a5072",
-                                "intranasal diazepam"="#67771a")) +
+  scale_color_manual(values = c("rectal diazepam" = "red",
+                                "intranasal midazolam"="purple4",
+                                "intranasal diazepam"="greenyellow")) +
   geom_line(lwd=1.5) + 
   theme(legend.position="none", panel.background=element_blank(), panel.grid.major=element_blank(), panel.grid.minor=element_blank(), panel.border=element_blank(), axis.ticks=element_blank(),
-        axis.text=element_text(size=14, face="bold", family="Calibri"), axis.text.x=element_text(angle=45, hjust=1),
-        axis.title=element_text(size=20, face="bold", family="Calibri")) +
+        axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
+        axis.title=element_text(size=20, face="bold")) +
   scale_x_continuous(name="Year", breaks=2006:2022) +
   scale_y_continuous(name="Proportion", breaks=seq(0, 1, 0.2), limits = c(0, 1))
 rescue_medication_use_per_year_plot
@@ -14467,13 +14673,13 @@ jonckheere_rescue_medication_cost_patient_cost_per_year_p_value_2018_2022
 
 # Figure rescue medication cost per year
 rescue_medication_AWP_cost_per_year_plot <- ggplot(data=rescue_medication_cost_per_year) + 
-  geom_line(aes(x=`year(SVCDATE)`, y=median_AWP), color="#002157", lwd=1.5) + 
-  geom_line(aes(x=`year(SVCDATE)`, y=p25_AWP), color="#002157", lwd=1, lty=2) + 
-  geom_line(aes(x=`year(SVCDATE)`, y=p75_AWP), color="#002157", lwd=1, lty=2) + 
-  geom_ribbon(aes(x=`year(SVCDATE)`, ymin=p25_AWP, ymax=p75_AWP), fill="#002157", alpha=0.1) +
+  geom_line(aes(x=`year(SVCDATE)`, y=median_AWP), color="darkblue", lwd=1.5) + 
+  geom_line(aes(x=`year(SVCDATE)`, y=p25_AWP), color="darkblue", lwd=1, lty=2) + 
+  geom_line(aes(x=`year(SVCDATE)`, y=p75_AWP), color="darkblue", lwd=1, lty=2) + 
+  geom_ribbon(aes(x=`year(SVCDATE)`, ymin=p25_AWP, ymax=p75_AWP), fill="darkblue", alpha=0.1) +
   theme(legend.position="none", panel.background=element_blank(), panel.grid.major=element_blank(), panel.grid.minor=element_blank(), panel.border=element_blank(), axis.ticks=element_blank(),
-        axis.text=element_text(size=14, face="bold", family="Calibri"), axis.text.x=element_text(angle=45, hjust=1),
-        axis.title=element_text(size=20, face="bold", family="Calibri")) +
+        axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
+        axis.title=element_text(size=20, face="bold")) +
   scale_x_continuous(name="Year", breaks=2006:2022) +
   scale_y_continuous(name="Median (p25-p75) cost ($)", breaks=seq(0, 800, 200), limits = c(0, 800))
 rescue_medication_AWP_cost_per_year_plot
@@ -14572,13 +14778,13 @@ rescue_medication_AWP_cost_per_year_by_generic_plot <- ggplot(data=rescue_medica
   geom_line(aes(x=`year(SVCDATE)`, y=p25_AWP, color=generic_binary), lwd=1, lty=2) + 
   geom_line(aes(x=`year(SVCDATE)`, y=p75_AWP, color=generic_binary), lwd=1, lty=2) + 
   geom_ribbon(aes(x=`year(SVCDATE)`, ymin=p25_AWP, ymax=p75_AWP, fill=generic_binary), alpha=0.1) +
-  scale_color_manual(values = c("generic" = "#67771a",
-                                "brand name"="#a30234")) +
-  scale_fill_manual(values = c("generic" = "#67771a",
-                                "brand name"="#a30234")) +
+  scale_color_manual(values = c("generic" = "forestgreen",
+                                "brand name"="orangered")) +
+  scale_fill_manual(values = c("generic" = "forestgreen",
+                                "brand name"="orangered")) +
   theme(legend.position="none", panel.background=element_blank(), panel.grid.major=element_blank(), panel.grid.minor=element_blank(), panel.border=element_blank(), axis.ticks=element_blank(),
-        axis.text=element_text(size=14, face="bold", family="Calibri"), axis.text.x=element_text(angle=45, hjust=1),
-        axis.title=element_text(size=20, face="bold", family="Calibri")) +
+        axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
+        axis.title=element_text(size=20, face="bold")) +
   scale_x_continuous(name="Year", breaks=2006:2022) +
   scale_y_continuous(name="Median (p25-p75) cost ($)", breaks=seq(0, 800, 200), limits = c(0, 800))
 rescue_medication_AWP_cost_per_year_by_generic_plot 
@@ -14599,7 +14805,7 @@ rescue_medication_patient_cost_per_year_by_generic_plot <- ggplot(data=rescue_me
         axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
         axis.title=element_text(size=20, face="bold")) +
   scale_x_continuous(name="Year", breaks=2006:2022) +
-  scale_y_continuous(name="Median (p25-p75) cost ($)", breaks=seq(0, 100, 25), limits = c(0, 100))
+  scale_y_continuous(name="Median (p25-p75) cost ($)", breaks=seq(0, 125, 25), limits = c(0, 125))
 rescue_medication_patient_cost_per_year_by_generic_plot 
 
 
@@ -14643,15 +14849,15 @@ rescue_medication_AWP_cost_per_year_by_rescue_medication_plot <- ggplot(data=res
   geom_line(aes(x=`year(SVCDATE)`, y=p25_AWP, color=rescue_medication), lwd=1, lty=2) + 
   geom_line(aes(x=`year(SVCDATE)`, y=p75_AWP, color=rescue_medication), lwd=1, lty=2) + 
   geom_ribbon(aes(x=`year(SVCDATE)`, ymin=p25_AWP, ymax=p75_AWP, fill=rescue_medication), alpha=0.1) +
-  scale_color_manual(values = c("rectal diazepam" = "#a30234",
-                                "intranasal midazolam"="#7a5072",
-                                "intranasal diazepam"="#67771a")) +
-  scale_fill_manual(values = c("rectal diazepam" = "#a30234",
-                                "intranasal midazolam"="#7a5072",
-                                "intranasal diazepam"="#67771a")) +
+  scale_color_manual(values = c("rectal diazepam" = "red",
+                                "intranasal midazolam"="purple4",
+                                "intranasal diazepam"="greenyellow")) +
+  scale_fill_manual(values = c("rectal diazepam" = "red",
+                                "intranasal midazolam"="purple4",
+                                "intranasal diazepam"="greenyellow")) +
   theme(legend.position="none", panel.background=element_blank(), panel.grid.major=element_blank(), panel.grid.minor=element_blank(), panel.border=element_blank(), axis.ticks=element_blank(),
-        axis.text=element_text(size=14, face="bold", family="Calibri"), axis.text.x=element_text(angle=45, hjust=1),
-        axis.title=element_text(size=20, face="bold", family="Calibri")) +
+        axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
+        axis.title=element_text(size=20, face="bold")) +
   scale_x_continuous(name="Year", breaks=2006:2022) +
   scale_y_continuous(name="Median (p25-p75) cost ($)", breaks=seq(0, 800, 200), limits = c(0, 800))
 rescue_medication_AWP_cost_per_year_by_rescue_medication_plot 
@@ -14674,7 +14880,7 @@ rescue_medication_patient_cost_per_year_by_rescue_medication_plot <- ggplot(data
         axis.text=element_text(size=14, face="bold"), axis.text.x=element_text(angle=45, hjust=1),
         axis.title=element_text(size=20, face="bold")) +
   scale_x_continuous(name="Year", breaks=2006:2022) +
-  scale_y_continuous(name="Median (p25-p75) cost ($)", breaks=seq(0, 100, 25), limits = c(0, 100))
+  scale_y_continuous(name="Median (p25-p75) cost ($)", breaks=seq(0, 125, 25), limits = c(0, 125))
 rescue_medication_patient_cost_per_year_by_rescue_medication_plot 
 ```
 
